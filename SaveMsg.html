@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Delivered</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        body,html{
+            display: grid;
+            min-height: 100%;
+            place-items: center;
+            background-color: rgb(137, 23, 245);
+        }
+        .main{
+            background-color: aliceblue;
+            height: 350px;
+            width: 600px;
+           display: flex; 
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           text-align: center;
+           border-radius: 10px;
+           box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+           
+        }
+        h2{
+            font-size: 2rem;
+            color: black;
+        }
+        #sub{
+          background-color: blueviolet;
+          color: #ffff;
+          padding: 0.7rem 1.5rem;
+          margin: 0 2rem;
+          outline: none;
+          border-radius: 15px;
+          font-size: 1.5rem;
+          margin-top: 1rem;
+          margin-bottom: 2rem;
+
+        }
+        form{
+            display: flex; 
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           width: 100%;
+           margin-top: 1rem;
+        }
+        #input{
+            width: 100%;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+        }
+        .box{
+            font-size: 1.5rem;
+            width: 500px;
+            height: 40px;
+            border: 1px solid #6665ee;
+            padding: 0 10px;
+        }
+        h4{
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        #msg{
+            font-size: 1.5rem;
+            color:#48830a;
+            margin-bottom: 2rem;
+        }
+        h5{
+            font-size: 1.2rem;
+            background-color: #ffd4dc;
+            width: 100%;
+            padding: 10px 0;
+        }
+         .feadback{
+            display: none;
+         }
+         .show{
+            display: block;
+         }
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h2>A Message You Whould Like to Pass</h2>
+        <form id="message">
+            <input type="text" name="" id="minput" class="box">
+            <button  type="submit" id="sub">Submit</button>
+        </form>
+       <h5 class="feadback">Please enter the value for pass</h5>
+        <h4>Last Message was delivered!</h4>
+        <p id="msg">Hello World</p>
+
+    </div>
+    <script>
+
+        (function () {
+            
+        const form = document.querySelector('#message');
+
+        form.addEventListener('submit', function(e){
+         e.preventDefault();
+
+        const message = document.querySelector('#minput')
+        const feadback = document.querySelector('.feadback')
+        const measageContain = document.querySelector('#msg')
+
+
+        if (message.value === '') {
+            feadback.classList.add('show')
+            setTimeout(function(){
+                feadback.classList.remove('show')
+            },4000)
+        } else{
+            measageContain.textContent= message.value
+            message.value = ''
+        }
+        })
+
+        })();
+    </script>
+</body>
+</html>
